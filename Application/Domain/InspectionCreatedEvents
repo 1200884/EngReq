@@ -1,0 +1,41 @@
+using Hapibee.Backend.Application.Domain.SeedWork;
+
+namespace Hapibee.Backend.Application.Domain
+{
+    internal sealed class InspectionCreatedEvent : DomainEvent
+    {
+        public InspectionCreatedEvent(string inspectionCode,string beekeeperCode, string hiveCode,bool polen,bool honey,bool queen, bool  cubs, string description ,uint numberOfHandles) :
+            base(beekeeperCode)
+        {
+            InspectionCode=inspectionCode;
+            HiveCode = hiveCode;
+            HasPolen=polen;
+            HasHoney=honey;
+            HasQueen=queen;
+            HasCubs=cubs;
+            AdicionalText=description;
+            NumberOfHandles = numberOfHandles;
+        }public InspectionCreatedEvent(string inspectionCode,string beekeeperCode, string hiveCode,bool polen,bool honey,bool queen, bool  cubs,uint numberOfHandles) :
+            base(beekeeperCode)
+        {
+            InspectionCode=inspectionCode;
+            HiveCode = hiveCode;
+            HasPolen=polen;
+            HasHoney=honey;
+            HasQueen=queen;
+            HasCubs=cubs;
+            AdicionalText=null;
+            NumberOfHandles = numberOfHandles;
+        }
+        public string InspectionCode { get; }
+        public string HiveCode { get; }
+        public bool HasPolen{ get; }
+        public bool Hashoney{ get; }
+        public bool HasQueen{ get; }
+        public bool HasCubs{ get; }
+        public string AdicionalText { get; }
+
+        public uint NumberOfHandles { get; }
+        
+
+}
